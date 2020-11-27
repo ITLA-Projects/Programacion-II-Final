@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
     <head>
 
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="estilos.css">
     </head>
     <body>
+      <p th:text="'Hello, ' + ${name} + '!'" />
       <header>
         <nav class="navbar navbar-expand-lg navbar-light " style="background-color: beige;" >
           <img src="imagenes/icono.jpeg" width="50px" height="50px"> 
@@ -95,7 +96,7 @@
           <p></p>
           <p></p>
           
-          <div class="row featurette">
+          <!-- <div class="row featurette">
             <div class="col-md-7">
               <h2 class="featurette-heading">Zona Colonial</h2>
               <p class="lead">Es justo el lugar donde empezó la historia del Nuevo Mundo. Se encuentra ubicada del lado oriental de la desembocadura del río Ozama. Fue fundada por Bartolomé Colón el 5 de agosto de 1496 y trasladada luego al lado occidental en 1502 por Nicolás de Ovando. Es uno de los lugares más visitados por los turistas.</p>
@@ -106,7 +107,20 @@
             </div>
           </div>
       
-          <hr class="featurette-divider">
+          <hr class="featurette-divider"> -->
+
+          <th:block th:each="sitio : ${sitios}">
+            <div class="row featurette">
+              <div class="col-md-7">
+                <h2 class="featurette-heading" th:text="${sitio.title}"></h2>
+                <p class="lead" th:text="${sitio.paragraph}"></p>
+              </div>
+              <div class="col-md-5">
+                <img src="@{/resources/bachata.jpeg}" height="350px" width="350px">
+              </div>
+            </div>
+            <hr class="featurette-divider">
+          </th:block>
       
           <div class="row featurette">
             <div class="col-md-7 order-md-2">
