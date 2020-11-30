@@ -1,5 +1,6 @@
 body{
     background: linear-gradient(100deg, beige, lemonchiffon); 
+    min-height: 100vmin;
 }
 
 footer{

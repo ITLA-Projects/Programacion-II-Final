@@ -20,11 +20,10 @@ public class HomeController {
 	@GetMapping("")
 	public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 		List<Sitio> listaSitios = sitiosRepo.findAll();
-		System.out.println(listaSitios.toString());
-		model.addAttribute("name", name);
+		// System.out.println(listaSitios.toString());
+		// model.addAttribute("name", name);
 		model.addAttribute("sitios", listaSitios);
 		return "index";
-
 	}
 
 }
