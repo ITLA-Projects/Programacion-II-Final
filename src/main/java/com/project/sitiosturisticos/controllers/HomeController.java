@@ -2,8 +2,8 @@ package com.project.sitiosturisticos.controllers;
 
 import java.util.List;
 
-import com.project.sitiosturisticos.models.Sitio;
-import com.project.sitiosturisticos.repositories.SitioRepository;
+import com.project.sitiosturisticos.models.Site;
+import com.project.sitiosturisticos.repositories.SiteRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
 
 	@Autowired
-	SitioRepository sitiosRepo;
+	SiteRepository sitesRepo;
 
 	@GetMapping("")
 	public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-		List<Sitio> listaSitios = sitiosRepo.findAll();
+		List<Site> listaSitios = sitesRepo.findAll();
 		// System.out.println(listaSitios.toString());
 		// model.addAttribute("name", name);
 		model.addAttribute("sitios", listaSitios);
