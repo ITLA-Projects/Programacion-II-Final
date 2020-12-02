@@ -6,6 +6,7 @@ import com.project.sitiosturisticos.services.interfaces.IContactForm;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ContactFormImpl implements IContactForm {
@@ -14,6 +15,7 @@ public class ContactFormImpl implements IContactForm {
     ContactFormRepository repo;
 
     @Override
+    @Transactional
     public Boolean Create(ContactForm entity) {
         try {
             repo.save(entity);

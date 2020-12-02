@@ -21,8 +21,9 @@ public class SiteImpl implements ISite {
     public List<Site> findAll() {
         return repo.findAll();
     }
-
+    
     @Override
+    @Transactional
     public Site findById(int id) {
         return repo.findById(id).get();
     }

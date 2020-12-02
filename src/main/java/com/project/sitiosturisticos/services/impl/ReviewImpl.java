@@ -8,6 +8,7 @@ import com.project.sitiosturisticos.services.interfaces.IReview;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ReviewImpl implements IReview {
@@ -16,6 +17,7 @@ public class ReviewImpl implements IReview {
     ReviewRepository repo;
 
     @Override
+    @Transactional
     public List<Review> findBySiteId(int id) {
         return repo.findBySiteId(id);
     }

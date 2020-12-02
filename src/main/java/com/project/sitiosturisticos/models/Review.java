@@ -1,5 +1,6 @@
 package com.project.sitiosturisticos.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,8 +21,12 @@ public class Review {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+
     private String author;
+
     private String image;
+
+    @Column(columnDefinition = "TEXT")
     private String comment;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -30,6 +35,7 @@ public class Review {
     @JoinColumn(name = "site",referencedColumnName = "id")
     private Site site;
 
+    
     public int getId() {
         return id;
     }
