@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <div th:replace="layouts/styles :: head(title='Sitio')"></div>
+  </head>
+  <body>
+    <!-- th replace header -->
+    <div th:replace="layouts/header :: header"></div>
+
+    <div>Buenas haha que te digo</div>
+
+    <div>
+      <span th:text="${site.title}"></span>
+      <span th:text="${site.paragraph}"></span>
+    </div>
+    <table>
+      <th:block th:each="review : ${reviews}">
+        <tr>
+          <td th:text="${review.author}">...</td>
+          <td th:text="${review.image}">...</td>
+        </tr>
+        <tr>
+          <td colspan="2" th:text="${review.comment}">...</td>
+        </tr>
+      </th:block>
+    </table>
+
+    <div th:replace="layouts/footer :: footer"></div>
+  </body>
+</html>
