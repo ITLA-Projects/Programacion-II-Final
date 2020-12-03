@@ -6,19 +6,8 @@
 <!-- th replace header -->
 <div th:replace="layouts/header :: header"></div>
 
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
      <h1>República Dominicana</h1>
-     <p></p>
-     <p></p>
-     <p></p>
-     <p></p>  
-      
-       
-      
+
         <div class="container marketing">
       
           
@@ -48,71 +37,46 @@
          
       
           <hr class="featurette-divider">
-          <h1>Lugares turísticos de República Dominicana</h1>
-          <p></p>
-          <p></p>
-          
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">Zona Colonial</h2>
-              <p class="lead">Es justo el lugar donde empezó la historia del Nuevo Mundo. Se encuentra ubicada del lado oriental de la desembocadura del río Ozama. Fue fundada por Bartolomé Colón el 5 de agosto de 1496 y trasladada luego al lado occidental en 1502 por Nicolás de Ovando. Es uno de los lugares más visitados por los turistas.</p>
-            </div>
-            <div class="col-md-5">
+          <div class="mb-4">
+            <h1>Lugares turísticos de República Dominicana</h1>
+          </div>
+          <th:block th:each="sitio : ${sitios}">
+            <a th:href="@{/sitio(id=${sitio.id})}" class="d-block linkSitio">
+            <div class="row featurette p-3">
+              <!--impar-->
+              
+                <div class="col-md-5 d-flex align-items-center" th:if="${sitio.id} % 2 == 0">
+                  <div class="w-100 h-100 d-flex justify-content-center align-items-center align-content-center">
+                    <img th:src="${sitio.image}" height="350px" width="350px" class="rounded-circle align-self-center">
+                  </div>
+                </div>
+                <div class="col-md-7" th:if="${sitio.id} % 2 == 0">
+                  <h2 class="featurette-heading" th:text="${sitio.title}"></h2>
+                  <p class="lead" th:text="${sitio.paragraph}"></p>
+                </div>
 
-           <img src="imagenes/zonacolonia.jpeg" height="350px" width="350px">
-            </div>
-          </div>
-      
-          <hr class="featurette-divider">
-      
-          <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading">Isla Saona</h2>
-              <p class="lead"> Es la más grande isla que forma parte de nuestra República Dominicana. Pertenece a la provincia de La Romana y el Parque Nacional del Este. Su belleza natural, hermosas playas y sus características de semidespoblada, hacen de la isla un gran atractivo turístico. </p>
-            </div>
-            <div class="col-md-5 order-md-1">
-             <img src="imagenes/islasaona.jpg" height="350px" width="350px">
-            </div>
-          </div>
-      
-          <hr class="featurette-divider">
-      
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">Cayo Levantado </h2>
-              <p class="lead"> Este se asocia a playas paradisíacas de altos cocoteros, vegetación exuberante, y playas cristalinas llena de abundante vida marina. La isla es pequeña, de tan solo un kilometro de extensión, pero con grandes tesoros naturales. </p>
-            
-            </div>
-            <div class="col-md-5">
-              <img src="imagenes/cayolevantado.jpeg" height="350px" width="350px">
-            </div>
-          </div>
-      
-          <hr class="featurette-divider">
-          
-      
-          <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-              <h2 class="featurette-heading">Dunas de Baní</span></h2>
-              <p class="lead"> El maravilloso paisaje de Las Dunas de Baní es un tesoro nacional de nuestra isla, gracias a sus altas montañas de arena blanca fina y el sol tan cálido como en pocos lugares del país. Es considerada como uno de los espacios naturales más hermosos de la isla.</p>
-            </div>
-            <div class="col-md-5">
-              <img src="imagenes/dunas.jpeg" height="350px" width="350px">
-            </div>
-          </div>
-          <hr class="featurette-divider">
+              
+              <!--par-->
+              <div class="col-md-7" th:unless="${sitio.id} % 2 == 0">
+                <h2 class="featurette-heading" th:text="${sitio.title}"></h2>
+                <p class="lead" th:text="${sitio.paragraph}"></p>
+              </div>
+              <div class="col-md-5 d-flex align-items-center" th:unless="${sitio.id} % 2 == 0">
+                <div class="w-100 h-100 d-flex justify-content-center align-items-center align-content-center">
+                  <img th:src="${sitio.image}" height="350px" width="350px" class="rounded-circle align-self-center">
+                </div>
+              </div>
 
-          <div class="row featurette">
-            <div class="col-md-7">
-              <h2 class="featurette-heading">Bahía de las Águilas</h2>
-              <p class="lead">Esta es conocida por la abundante presencia de los preciosos corales que se pueden encontar en aguas limpias, las estrellas de mar y las praderas marinas, por lo que el submarinismo en la zona puede llegar a ser una experiencia inolvidable. </p>
-            </div>
-            <div class="col-md-5">
-              <img src="imagenes/bahiaa.jpeg" height="350px" width="350px">
-            </div>
-          </div>
+              
 
-          <hr class="featurette-divider">
+            </div>
+        
+           
+          </a>
+           <hr class="featurette-divider">
+          </th:block>
+
+    
       
         </div>
         <!-- th replace footer-->

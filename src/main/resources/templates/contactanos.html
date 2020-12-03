@@ -1,11 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Esta es la pagina de contactanos
-</body>
+  <div th:replace="layouts/styles :: head"></div>
+  <body>
+    <!-- th replace header -->
+    <div th:replace="layouts/header :: header"></div>
+    <div class="container my-5">
+        <h1>Contacta con Nosotros!</h1>
+      <div class="bg-light p-4 rounded-lg shadow-lg my-5">
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre Completo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="Juancito de la Lora..."
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Correo Electronico</label>
+            <input
+              type="email"
+              class="form-control"
+              id="exampleFormControlInput1"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">De que sitio estas interesado?</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+            
+              <option>Zona Colonial</option>
+              <option>Isla Saona</option>
+              <option>Cayo Levantado</option>
+              <option>Dunas de Baní</option>
+              <option>Bahia de las Águilas</option>
+     
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Que quieres decirnos?</label>
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-outline-primary mb-2">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

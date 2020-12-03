@@ -21,10 +21,6 @@ public class HomeController {
 	public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 		List<Site> listaSitios = siteService.findAll();
 
-		//validacion
-
-		// System.out.println(listaSitios.toString());
-		// model.addAttribute("name", name);
 		model.addAttribute("sitios", listaSitios);
 		return "index";
 	}

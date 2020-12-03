@@ -7,8 +7,46 @@
     <!-- th replace header -->
     <div th:replace="layouts/header :: header"></div>
 
-    <div>Buenas haha que te digo</div>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <h1 th:text="${site.title}"></h1>
+      </div>
+      <div class="row my-4 bg-light shadow rounded-lg">
+        <div class="col-md-6 p-3 d-flex justify-content-center align-items-center align-content-center">
+          <h4 th:text="${site.paragraph}" class="text-center"></h5>
+        </div>
+        <div class="col-md-6 p-3">
+          <img th:src="${site.image}" width="100%" alt="">
+        </div>
+      </div>
+      <div class="row mt-5">
+        <h3>Reseñas del Sitio</h1>
+      </div>
+      <div class="row my-4">
 
+
+        <th:block th:each="review : ${reviews}">
+          <div class="card shadow p-3 mb-5 bg-white rounded w-100">
+            <div class="card-header d-flex align-items-center">
+              <div class="rounded-circle">
+                <img src="imagenes/bachata.jpeg" width="75px" height="75px" class="rounded-circle"/>
+              </div>
+             <div class="ml-4">
+                <h4 th:text="${review.author}"></h4>
+             </div> 
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p class="text-right"><cite title="Source Title" th:text="${review.comment}"></cite></p>
+               <footer class="blockquote-footer text-left">Comentado el 13 de Octubre del 2020</footer>
+             </blockquote>
+            </div>
+          </div>
+        </th:block>
+      </div>
+    </div>
+
+    <!--
     <div>
       <span th:text="${site.title}"></span>
       <span th:text="${site.paragraph}"></span>
@@ -24,7 +62,7 @@
         </tr>
       </th:block>
     </table>
-
+  -->
     <div th:replace="layouts/footer :: footer"></div>
   </body>
 </html>

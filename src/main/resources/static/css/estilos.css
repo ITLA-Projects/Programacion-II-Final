@@ -79,3 +79,23 @@ h1{
       margin-top: 7rem;
     }
   }  
+
+  .linkSitio{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    border-radius: 30px;
+    
+
+    transition: all 0.2s;
+  }
+
+  .linkSitio:hover{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+  }
+
+  .linkSitio p{
+    text-decoration: none;
+  }
